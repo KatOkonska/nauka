@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Bookmarks ABC ABC ABC
+{% endblock %}
+
+{% block body %}
+    <h1>
+        Bookmarks DDDD
+    </h1>
+    {% if bookmarks|length %}
+        <ul>
+            {% for row in bookmarks %}
+                <li>{{ row.title }}, {{ row.url }}</li>
+
+                <a href="{{ url('bookmark_view', {'id': loop.index0}) }}" title="{{ 'label.view' }}">
+                    {{ 'label.view' }}
+                </a>
+
+
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div>
+            List is empty!
+        </div>
+    {% endif %}
+
+
+{% endblock %}
